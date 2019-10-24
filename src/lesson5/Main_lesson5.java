@@ -5,7 +5,7 @@ public class Main_lesson5 {
 
         public static void main(String[] args) throws InterruptedException {
 
-            final int SIZE = 10000000;
+            final int SIZE = 10_000_000;
             float[] fullArray = new float[SIZE];
             for (int i = 0; i < SIZE; i++) { fullArray[i] = 1; }
 

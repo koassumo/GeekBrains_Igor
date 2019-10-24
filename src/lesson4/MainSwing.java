@@ -19,8 +19,8 @@ public class MainSwing {
 
 
         // поле для всей переписки
-        JTextField bigField = new JTextField("",20);
-        bigField.setHorizontalAlignment(JTextField.LEFT);                         // выровнить текст по правому краю
+        JTextArea bigField = new JTextArea(20,20);
+        // bigField.setHorizontalAlignment(JTextField.LEFT);                         // выровнить текст по правому краю
         bigField.setFont(new Font("Arial", Font.BOLD,14));           // шрифт
         bigField.setEditable(false);                                               // запрет на редактирование (чтобы с клавы нельзя было поменять текст)
 
@@ -56,6 +56,7 @@ public class MainSwing {
             public void actionPerformed(ActionEvent e) { bigField.setText(bigField.getText() + "\n" + inputTextField.getText()); inputTextField.setText(""); }
         };
 
+        //обработчик событий
         inputTextField.addActionListener(inputListener);    //  заполнение поля с клавы
         buttonEnter.addActionListener(inputListener);    //  нажатие на кнопку ввод
 
