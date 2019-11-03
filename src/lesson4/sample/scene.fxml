@@ -12,19 +12,24 @@
     <center>
         <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </center>
+
     <bottom>
       <GridPane BorderPane.alignment="CENTER">
+
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="526.0" minWidth="10.0" prefWidth="472.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="128.0" />
         </columnConstraints>
+
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+
          <children>
             <TextField />
-            <Button fx:id="enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Ввод" GridPane.columnIndex="1" />
+            <Button fx:id="enter" onAction="#handleButtonAction" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Ввод" GridPane.columnIndex="1" />
          </children>
+
       </GridPane>
    </bottom>
 
