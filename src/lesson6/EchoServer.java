@@ -28,6 +28,7 @@ public class EchoServer {
                 if (str.equals("/end")) {
                     break;
                 }
+                System.out.println("Retrieved message: " + str);
                 out.writeUTF("Эхо: " + str);
             }
         } catch (IOException e) {

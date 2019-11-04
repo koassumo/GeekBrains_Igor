@@ -1,4 +1,4 @@
-package lesson4.sample;
+package lesson6.serverGUI_FX;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

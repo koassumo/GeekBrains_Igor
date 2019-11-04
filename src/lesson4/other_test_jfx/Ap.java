@@ -1,4 +1,4 @@
-package lesson4.sample;
+package lesson4.other_test_jfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,16 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
-// в меню run - edit configuration добавлена строка --module-path "c:\fx\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml
-// с указанием на lib javafx (постоянно слетает !!!!!!)
-
-public class App extends Application {
+public class Ap extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
-
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -29,7 +24,5 @@ public class App extends Application {
         stage.setTitle("Chat");         // или stage.setScene(new Scene(root, 600, 500));
         stage.show();
     }
-
-
 
 }

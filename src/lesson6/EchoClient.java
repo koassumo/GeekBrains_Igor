@@ -31,6 +31,8 @@ public class EchoClient extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        new ClientGUI_Swing();
         prepareGUI();
     }
 
@@ -88,6 +90,10 @@ public class EchoClient extends JFrame {
         }
     }
 
+
+
+
+
     public void prepareGUI() {
         // Параметры окна
         setBounds(600, 300, 500, 500);
@@ -120,6 +126,9 @@ public class EchoClient extends JFrame {
             }
         });
 
+
+
+
         // Настраиваем действие на закрытие окна
         addWindowListener(new WindowAdapter() {
             @Override
@@ -135,6 +144,7 @@ public class EchoClient extends JFrame {
         });
         setVisible(true);
     }
+
 
 
     public static void main(String[] args) {

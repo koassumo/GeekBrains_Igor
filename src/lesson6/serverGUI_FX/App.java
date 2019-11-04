@@ -1,4 +1,4 @@
-package lesson4.sample;
+package lesson6.serverGUI_FX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
