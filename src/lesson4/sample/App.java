@@ -16,7 +16,6 @@ public class App extends Application {
         launch(args);
     }
 
-
     @Override
     public void start(Stage stage) throws Exception{
         FXMLLoader loader = new FXMLLoader();

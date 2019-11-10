@@ -6,9 +6,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
 // ВАЖНО !!! не забыть в файле fxml подключить контроллер в первом контейнере типа fx:controller="lesson4.sample.Controller"
 
 public class Controller {
+
+
+
+
+
+
+
 
 
     @FXML
@@ -25,4 +37,10 @@ public class Controller {
         textar.setText(textar.getText() + "\n" + textField.getText());
         textField.clear();
     }
+
+
+
+
+
+
 }

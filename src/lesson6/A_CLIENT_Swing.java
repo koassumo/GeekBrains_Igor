@@ -11,7 +11,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class EchoClient extends JFrame {
+public class A_CLIENT_Swing extends JFrame {
+
+    // ВАЖНО!!!!!!!! в меню run- edit configuration добавить:  --module-path "c:\fx\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml
 
     private JTextField msgInputField;
     private JTextArea chatArea;
@@ -25,14 +27,14 @@ public class EchoClient extends JFrame {
     private DataInputStream in;
     private DataOutputStream out;
 
-    public EchoClient() {
+    public A_CLIENT_Swing() {
         try {
             openConnection();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        new ClientGUI_Swing();
+//        new ServerGUI_Swing();
         prepareGUI();
     }
 
@@ -127,8 +129,6 @@ public class EchoClient extends JFrame {
         });
 
 
-
-
         // Настраиваем действие на закрытие окна
         addWindowListener(new WindowAdapter() {
             @Override
@@ -147,11 +147,12 @@ public class EchoClient extends JFrame {
 
 
 
+    // для вывода свинга в своем потоке, поэтому такая конструкция обязательна
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new EchoClient();
+                new A_CLIENT_Swing();
             }
         });
     }

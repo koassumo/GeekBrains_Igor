@@ -11,12 +11,17 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ClientGUI_Swing {
+public class A_SERVER_Swing {
 
     public static void main(String[] args) {
 
-// ---------------------- МОЕ РАНЕЕ НАПИСАННОЕ ОКНО НА СВИНГЕ -----------------------------------------------------------
-        JFrame myFrame = new JFrame("Chat");
+        Socket socket = null;
+        DataInputStream in;
+        DataOutputStream out;
+
+        // ---------------------- МОЕ РАНЕЕ НАПИСАННОЕ ОКНО НА СВИНГЕ -----------------------------------------------------------
+
+        JFrame myFrame = new JFrame("Сервер");
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel myPanel = new JPanel();                        // основная панель
         BorderLayout myBorderLayout = new BorderLayout();     // подложка для основной панели
@@ -47,42 +52,41 @@ public class ClientGUI_Swing {
         myFrame.setSize(500,500);
         myFrame.setVisible(true);
 
-
         ActionListener inputListener = new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) { bigField.setText(bigField.getText() + "\n" + inputTextField.getText()); inputTextField.setText(""); }
+            public void actionPerformed(ActionEvent e) {
+                bigField.setText(bigField.getText() + "\n" + inputTextField.getText()); inputTextField.setText("");
+//                out.writeUTF("Эхо (с) сервер: " + stringIN);
+            }
         };
-
 
         //обработчик событий
         inputTextField.addActionListener(inputListener);    //  заполнение поля с клавы
         buttonEnter.addActionListener(inputListener);    //  нажатие на кнопку ввод
 
 
-        Socket socket = null;
+
 
         try (ServerSocket serverSocket = new ServerSocket(8189)) {    // только 1 параметр - порт
             System.out.println("Сервер запущен, ожидаем подключения...");
-            socket = serverSocket.accept();                     // здесь выполнение блокируется
-
+            socket = serverSocket.accept();                     // здесь выполнение блокируется до подключения клиента
             System.out.println("Клиент подключился");
 
 
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            in = new DataInputStream(socket.getInputStream());
+            out = new DataOutputStream(socket.getOutputStream());
+            // далее бесконечная прослушка канала для приема входящих
             while (true) {
-                String str = in.readUTF();
-                if (str.equals("/end")) {
+                String stringIN = in.readUTF();
+                if (stringIN.equals("/end")) { // это если пришла команда "конец связи" ...
                     break;
                 }
-                out.writeUTF("Эхо: " + str);
+                bigField.setText(bigField.getText() + "\n" + "Клиент: " + stringIN); inputTextField.setText("");
+                out.writeUTF("Эхо (с) сервер: " + stringIN);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-
     }
-
 }
